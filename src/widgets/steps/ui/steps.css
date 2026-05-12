@@ -1,10 +1,7 @@
 .steps {
   padding: 2rem;
   position: relative;
-  /* ИСПРАВЛЕНИЕ ОБРЕЗКИ: */
-  /* overflow-x: clip скроет вылет вбок, убирая скролл */
   overflow-x: clip;
-  /* overflow-y: visible гарантирует, что колеса снизу не обрежутся */
   overflow-y: visible;
 
   @media (min-width: 1024px) {
@@ -59,8 +56,6 @@
   }
 }
 
-/* --- САМОЛЕТ (АНИМАЦИЯ ПРИ СКРОЛЛЕ) --- */
-
 .steps__airplane {
   position: relative;
   z-index: 5;
@@ -68,7 +63,6 @@
   left: 50%;
   width: 90%;
   will-change: transform, opacity;
-  /* Состояние для старых браузеров */
   transform: translate(-50%, 0) rotate(-12deg);
 
   @media (min-width: 768px) {
@@ -90,8 +84,6 @@
 @supports (animation-timeline: view()) {
   .steps__airplane {
     animation-timeline: view();
-    /* Начинает вылет, когда весь блок вошел в экран (contain 0%) */
-    /* Заканчивает, когда блок прошел половину пути (contain 50%) */
     animation-range: contain 0% contain 50%;
     animation-name: airplaneFlyFixed;
     animation-fill-mode: both;
@@ -99,7 +91,6 @@
   }
 }
 
-/* Десктопная анимация: из прозрачного маленького в нормальный */
 @keyframes airplaneFlyFixed {
   0% {
     transform: translate(20%, 100px) scale(0.5) rotate(-20deg);
@@ -111,7 +102,6 @@
   }
 }
 
-/* Мобильная анимация: учитываем центрирование через left: 50% */
 @media (max-width: 1023px) {
   @supports (animation-timeline: view()) {
     .steps__airplane {
@@ -122,7 +112,6 @@
 
 @keyframes airplaneFlyMobileFixed {
   0% {
-    /* Сдвинул чуть меньше вниз, чтобы он не проваливался глубоко */
     transform: translate(0, 50px) scale(0.5) rotate(-20deg);
     opacity: 0;
   }
@@ -131,8 +120,6 @@
     opacity: 1;
   }
 }
-
-/* --- КАРТОЧКИ И СЕТКА --- */
 
 .steps .slider__slide {
   background-image: url('/src/widgets/steps/assets/card__bg.jpg');

@@ -12,7 +12,6 @@
   display: flex;
   transition: transform 0.4s ease-in-out;
   will-change: transform;
-  /* Задаем фиксированный gap, который должен совпадать с настройками в JS */
   gap: 20px;
 
   @media (min-width: 1366px) {
@@ -23,25 +22,17 @@
 .slider__slide {
   flex-shrink: 0;
   box-sizing: border-box;
-
-  /* Математически правильный расчет ширины с учетом gap:
-     (100% - (кол-во промежутков * размер gap)) / кол-во слайдов */
-
-  /* 1 слайд: (100% - (0 * 20px)) / 1 */
   width: 100%;
 
   @media (min-width: 768px) {
-    /* 2 слайда: (100% - (1 * 20px)) / 2 */
     width: calc((100% - 20px) / 2);
   }
 
   @media (min-width: 1366px) {
-    /* 3 слайда: (100% - (2 * 20px)) / 3 */
     width: calc((100% - 40px) / 3);
   }
 }
 
-/* Логика для верхнего слайдера (Steps) */
 @media (min-width: 1024px) {
   .slider--mobile-only .slider__viewport {
     overflow: visible;

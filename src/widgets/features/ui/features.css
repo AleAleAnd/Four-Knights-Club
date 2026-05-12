@@ -80,8 +80,6 @@
   transform: translate(-50%);
 }
 
-/* --- ПИКСЕЛЬНАЯ АНИМАЦИЯ УДАРА --- */
-
 .features__img--1,
 .features__img--2 {
   position: absolute;
@@ -91,11 +89,7 @@
 @supports (animation-timeline: scroll()) {
   .features__img--1,
   .features__img--2 {
-    /* Привязываемся к скроллу всей страницы */
     animation-timeline: scroll(root);
-
-    /* НАСТРОЙКА: Если анимация срабатывает слишком рано или поздно, 
-       меняй эти цифры. 800px — начало замаха, 1800px — конец полета. */
     animation-range: 800px 1800px;
 
     animation-fill-mode: both;
@@ -132,7 +126,7 @@
   }
   50% {
     transform: rotate(-15deg) translate(0, 0);
-  } /* Удар в середине диапазона скролла */
+  }
   100% {
     transform: rotate(-5deg) translate(-150px, -80px);
   }
@@ -144,16 +138,14 @@
   }
   45% {
     transform: rotate(0deg) translate(0, 0);
-  } /* Ждет удара */
+  }
   65% {
     transform: rotate(-15deg) translate(-100px, -20px);
-  } /* Начало отлета: больше влево, чуть-чуть вверх */
+  }
   100% {
     transform: rotate(-45deg) translate(-500px, -40px);
-  } /* Финал: конь улетает далеко влево за край экрана */
+  }
 }
-
-/* --- КОНЕЦ АНИМАЦИИ --- */
 
 .features__img--3 {
   position: absolute;

@@ -182,8 +182,6 @@
   }
 }
 
-/* --- ПАРАЛЛАКС ФИГУР --- */
-
 .hero__piece {
   position: absolute;
   will-change: transform;
@@ -191,9 +189,7 @@
 
 @supports (animation-timeline: scroll()) {
   .hero__piece {
-    /* Привязываем анимацию ко всему скроллу, но ограничиваем диапазон */
     animation-timeline: scroll(root);
-    /* Анимация проигрывается полностью на первых 20% высоты документа */
     animation-range: 0 1000px;
     animation-timing-function: linear;
     animation-fill-mode: both;
@@ -278,7 +274,6 @@
   }
 }
 
-/* Keyframes с увеличенной амплитудой */
 @keyframes parallax-p1 {
   from {
     transform: translateY(0) rotate(-10deg);
@@ -325,8 +320,6 @@
     transform: translateY(-450px) rotate(25deg);
   }
 }
-
-/* --- КОНЕЦ ПАРАЛЛАКСА --- */
 
 .hero__ticker {
   overflow: hidden;
