@@ -1,0 +1,241 @@
+.features {
+  padding: 2rem 2rem 0 2rem;
+  overflow: hidden;
+
+  @media (min-width: 1024px) {
+    padding: 4rem 4rem 0 4rem;
+  }
+
+  @media (min-width: 1366px) {
+    padding: 6rem 6rem 0 6rem;
+  }
+}
+
+.features__info {
+  display: grid;
+  grid-template-areas: 'text1' 'image' 'text2' 'text3';
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
+    grid-template-columns: 5fr 3fr;
+    grid-template-areas: 'text1 image' 'text2 image' 'text3 image' '. image';
+    align-items: center;
+  }
+}
+
+.features__title--1 {
+  grid-area: text1;
+}
+.features__title--2 {
+  grid-area: text2;
+}
+.features__title--3 {
+  grid-area: text3;
+  color: var(--color-accent-red);
+  font-weight: 600;
+}
+
+.features__item--lecture-img {
+  grid-area: image;
+  border-radius: 100%;
+  margin: 2rem 0;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    margin: 0;
+  }
+}
+
+.features__title {
+  margin: 0;
+}
+
+.features__item--session {
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3rem;
+  }
+}
+
+.features__media {
+  background-image: url('/src/widgets/features/assets/chessplayer_bg.png');
+  background-size: cover;
+  background-position: top;
+  margin: 2rem 0 8rem 0;
+  position: relative;
+  padding-bottom: 4rem;
+
+  @media (min-width: 768px) {
+    width: 40%;
+  }
+}
+
+.features__img-main {
+  width: 125%;
+  position: relative;
+  z-index: 1;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+/* --- ПИКСЕЛЬНАЯ АНИМАЦИЯ УДАРА --- */
+
+.features__img--1,
+.features__img--2 {
+  position: absolute;
+  will-change: transform;
+}
+
+@supports (animation-timeline: scroll()) {
+  .features__img--1,
+  .features__img--2 {
+    /* Привязываемся к скроллу всей страницы */
+    animation-timeline: scroll(root);
+
+    /* НАСТРОЙКА: Если анимация срабатывает слишком рано или поздно, 
+       меняй эти цифры. 800px — начало замаха, 1800px — конец полета. */
+    animation-range: 800px 1800px;
+
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+  }
+
+  .features__img--1 {
+    animation-name: strikeFixed;
+  }
+  .features__img--2 {
+    animation-name: fallFixed;
+  }
+}
+
+.features__img--1 {
+  right: 5%;
+  width: 50%;
+  z-index: 3;
+  bottom: -20%;
+  transform: rotate(-45deg) translate(60px, 60px);
+}
+
+.features__img--2 {
+  right: 50%;
+  width: 50%;
+  z-index: 2;
+  bottom: -10%;
+  transform: rotate(0deg);
+}
+
+@keyframes strikeFixed {
+  0% {
+    transform: rotate(-45deg) translate(60px, 60px);
+  }
+  50% {
+    transform: rotate(-15deg) translate(0, 0);
+  } /* Удар в середине диапазона скролла */
+  100% {
+    transform: rotate(-5deg) translate(-150px, -80px);
+  }
+}
+
+@keyframes fallFixed {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  45% {
+    transform: rotate(0deg) translate(0, 0);
+  } /* Ждет удара */
+  65% {
+    transform: rotate(-15deg) translate(-100px, -20px);
+  } /* Начало отлета: больше влево, чуть-чуть вверх */
+  100% {
+    transform: rotate(-45deg) translate(-500px, -40px);
+  } /* Финал: конь улетает далеко влево за край экрана */
+}
+
+/* --- КОНЕЦ АНИМАЦИИ --- */
+
+.features__img--3 {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  right: -6%;
+  width: 20%;
+}
+
+.features__session_info {
+  @media (min-width: 768px) {
+    width: 60%;
+    padding-left: 3rem;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 6rem;
+  }
+}
+
+.features__title-accent {
+  color: var(--color-accent-red);
+  font-weight: 600;
+}
+
+.features__table {
+  width: 100%;
+}
+
+.table__body {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+
+.table__row {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #d0d0d0;
+  padding: 0.5rem 0;
+
+  @media (min-width: 1366px) {
+    flex-direction: row;
+    padding: 0;
+  }
+}
+
+.table__row:last-child {
+  border-bottom: none;
+}
+
+.table__row td {
+  @media (min-width: 1366px) {
+    width: 50%;
+  }
+}
+
+.table__label {
+  @media (min-width: 1366px) {
+    padding: 0.5rem 0;
+  }
+}
+
+.table__oldprice {
+  text-decoration-color: var(--color-accent-red);
+  text-decoration-thickness: 2px;
+  margin-right: 0.5rem;
+}
+
+.table__value {
+  font-weight: 700;
+
+  @media (min-width: 1366px) {
+    padding: 0.5rem;
+    border-left: 2px solid #d0d0d0;
+  }
+}
+
+.features__contact {
+  color: var(--color-accent-blue);
+  text-decoration: none;
+}
+
+.features__contact:hover {
+  text-decoration: underline;
+}

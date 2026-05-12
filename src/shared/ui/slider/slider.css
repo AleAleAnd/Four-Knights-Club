@@ -1,0 +1,145 @@
+.slider {
+  position: relative;
+  width: 100%;
+}
+
+.slider__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider__track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  will-change: transform;
+  /* Задаем фиксированный gap, который должен совпадать с настройками в JS */
+  gap: 20px;
+
+  @media (min-width: 1366px) {
+    margin-top: 2rem;
+  }
+}
+
+.slider__slide {
+  flex-shrink: 0;
+  box-sizing: border-box;
+
+  /* Математически правильный расчет ширины с учетом gap:
+     (100% - (кол-во промежутков * размер gap)) / кол-во слайдов */
+
+  /* 1 слайд: (100% - (0 * 20px)) / 1 */
+  width: 100%;
+
+  @media (min-width: 768px) {
+    /* 2 слайда: (100% - (1 * 20px)) / 2 */
+    width: calc((100% - 20px) / 2);
+  }
+
+  @media (min-width: 1366px) {
+    /* 3 слайда: (100% - (2 * 20px)) / 3 */
+    width: calc((100% - 40px) / 3);
+  }
+}
+
+/* Логика для верхнего слайдера (Steps) */
+@media (min-width: 1024px) {
+  .slider--mobile-only .slider__viewport {
+    overflow: visible;
+  }
+
+  .slider--mobile-only .slider__track {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 20px !important;
+    transform: none !important;
+  }
+
+  .slider--mobile-only .slider__slide {
+    width: 100% !important;
+  }
+
+  .slider--mobile-only .slider__controls {
+    display: none;
+  }
+}
+
+.slider__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
+
+  @media (min-width: 1024px) {
+    position: absolute;
+    top: -4.5rem;
+    margin-top: 0;
+    right: 0;
+    gap: 1.25rem;
+  }
+}
+
+.slider__btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: var(--color-dark-primary);
+  background-image: url('/src/shared/assets/icons/arrow.svg');
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  background-size: 0.6rem;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media (min-width: 1024px) {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: 0.75rem;
+  }
+}
+
+.slider__btn:hover:not(:disabled) {
+  background-color: var(--color-highlight-yellow);
+}
+
+.slider__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.slider__btn--next {
+  transform: scaleX(-1);
+}
+
+.slider__counter {
+  letter-spacing: -2px;
+  color: #838383;
+}
+
+.slider__current {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.slider__dots {
+  gap: 0.25rem;
+  display: flex;
+}
+
+.slider__dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--color-dark-primary);
+  border-radius: 50%;
+  opacity: 0.25;
+  transition: 0.3s;
+}
+
+.slider__dot.is-active {
+  opacity: 1;
+}

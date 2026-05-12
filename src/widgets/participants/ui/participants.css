@@ -1,0 +1,57 @@
+.participants {
+  padding: 2rem;
+
+  @media (min-width: 1024px) {
+    padding: 4rem;
+  }
+
+  @media (min-width: 1366px) {
+    padding: 6rem;
+  }
+}
+
+.participants__title {
+  margin-bottom: 2rem;
+}
+
+.participant-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.participant-card img {
+  border-radius: 100%;
+  width: 65%;
+  margin-bottom: 1rem;
+
+  @media (min-width: 1366px) {
+    width: 75%;
+  }
+}
+
+.participant-card__name {
+  text-align: center;
+}
+
+.participant-card__role {
+  text-align: center;
+  color: #838383;
+}
+
+.participant-card__btn {
+  outline: none;
+  background-color: transparent;
+  border: 1.5px solid var(--color-accent-blue);
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  color: var(--color-accent-blue);
+  border-radius: 10rem;
+  transition: 0.5s all;
+  cursor: pointer;
+}
+
+.participant-card__btn:hover {
+  background-color: var(--color-accent-blue);
+  color: #fff;
+}

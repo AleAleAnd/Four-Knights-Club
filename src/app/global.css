@@ -1,0 +1,67 @@
+@import '../shared/styles/colors.css';
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('/src/shared/assets/fonts/Merriweather.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GolosText';
+  src: url('/src/shared/assets/fonts/GolosText.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  @media (min-width: 1024px) {
+    font-size: 3rem;
+  }
+}
+
+h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0;
+
+  @media (min-width: 1024px) {
+    font-size: 2.25rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-family: 'GolosText', sans-serif;
+  background-color: var(--color-background-body);
+  color: var(--color-text-primary);
+}
+
+section[id] {
+  scroll-margin-top: 2rem;
+}

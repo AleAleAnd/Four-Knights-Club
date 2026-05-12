@@ -1,0 +1,358 @@
+.hero {
+  background-color: var(--color-light-background);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/src/shared/assets/images/bg_mask.png');
+  z-index: 0;
+  opacity: 0.25;
+}
+
+.hero__container {
+  position: relative;
+
+  @media (min-width: 1024px) {
+    padding-bottom: 10rem;
+  }
+}
+
+.hero__logo-link {
+  display: flex;
+  position: relative;
+  left: 2rem;
+  top: 2rem;
+  width: 12rem;
+  z-index: 2;
+  outline: none;
+  opacity: 0.75;
+  transition: 0.5s all;
+
+  @media (min-width: 1024px) {
+    left: 4rem;
+    top: 2rem;
+    width: 13rem;
+  }
+
+  @media (min-width: 1366px) {
+    left: 6rem;
+    top: 3rem;
+    width: 14rem;
+  }
+}
+
+.hero__logo-link:hover {
+  opacity: 1;
+}
+
+.hero__logo-link img {
+  width: 100%;
+  height: auto;
+}
+
+.hero__info {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+
+  @media (min-width: 768px) {
+    padding: 3rem 0 0 0;
+    width: 60%;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 4rem;
+    width: 50%;
+  }
+
+  @media (min-width: 1366px) {
+    padding: 6rem;
+    width: 40%;
+  }
+}
+
+.hero__title {
+  text-align: center;
+  text-transform: uppercase;
+
+  @media (min-width: 1024px) {
+    text-align: left;
+  }
+}
+
+.hero__description {
+  text-align: center;
+}
+
+.hero__actions {
+  display: grid;
+  grid-gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+
+  @media (min-width: 1024px) {
+    display: flex;
+  }
+
+  @media (min-width: 1366px) {
+    margin-top: 2rem;
+    grid-gap: 2rem;
+  }
+}
+
+.hero__visual {
+  position: relative;
+  margin-top: 3rem;
+  z-index: 0;
+  pointer-events: none;
+
+  @media (min-width: 768px) {
+    margin-top: 0rem;
+  }
+
+  @media (min-width: 1024px) {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.hero__img-city {
+  width: 200%;
+  left: -80%;
+  position: relative;
+  z-index: 2;
+
+  @media (min-width: 768px) {
+    width: 150%;
+    left: -40%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 130%;
+    left: -10%;
+  }
+
+  @media (min-width: 1366px) {
+    width: 110%;
+    left: 0%;
+  }
+}
+
+.hero__img-circle {
+  position: absolute;
+  width: 85%;
+  bottom: 0rem;
+  z-index: 0;
+  left: 7.5%;
+  animation: circleRotate 120s linear infinite;
+
+  @media (min-width: 768px) {
+    width: 55%;
+    bottom: 45%;
+    left: auto;
+    right: -10%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 40%;
+    bottom: auto;
+    right: 5%;
+    top: -50%;
+  }
+
+  @media (min-width: 1366px) {
+    width: 40%;
+    top: -65%;
+  }
+}
+
+@keyframes circleRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- ПАРАЛЛАКС ФИГУР --- */
+
+.hero__piece {
+  position: absolute;
+  will-change: transform;
+}
+
+@supports (animation-timeline: scroll()) {
+  .hero__piece {
+    /* Привязываем анимацию ко всему скроллу, но ограничиваем диапазон */
+    animation-timeline: scroll(root);
+    /* Анимация проигрывается полностью на первых 20% высоты документа */
+    animation-range: 0 1000px;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+  }
+
+  .hero__piece--1 {
+    animation-name: parallax-p1;
+  }
+  .hero__piece--2 {
+    animation-name: parallax-p2;
+  }
+  .hero__piece--3 {
+    animation-name: parallax-p3;
+  }
+  .hero__piece--4 {
+    animation-name: parallax-p4;
+  }
+}
+
+.hero__piece--1 {
+  z-index: 1;
+  width: 10%;
+  bottom: 50%;
+  left: 25%;
+  transform: rotate(-10deg);
+
+  @media (min-width: 768px) {
+    width: 8%;
+    bottom: 40%;
+    left: 40%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 6%;
+    bottom: 50%;
+    left: auto;
+    right: 35%;
+  }
+}
+
+.hero__piece--2 {
+  z-index: 2;
+  width: 16%;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(-15deg);
+
+  @media (min-width: 768px) {
+    width: 10%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 8%;
+    right: 20%;
+    left: auto;
+    transform: rotate(-15deg);
+  }
+}
+
+.hero__piece--3 {
+  display: none;
+  @media (min-width: 1366px) {
+    display: block;
+    width: 5%;
+    right: 2%;
+    bottom: 8%;
+    z-index: 2;
+  }
+}
+
+.hero__piece--4 {
+  z-index: 1;
+  width: 10%;
+  bottom: 75%;
+  right: 20%;
+  transform: rotate(10deg);
+
+  @media (min-width: 1024px) {
+    right: 8%;
+    width: 6%;
+    bottom: 80%;
+  }
+}
+
+/* Keyframes с увеличенной амплитудой */
+@keyframes parallax-p1 {
+  from {
+    transform: translateY(0) rotate(-10deg);
+  }
+  to {
+    transform: translateY(-250px) rotate(-15deg);
+  }
+}
+
+@keyframes parallax-p2 {
+  from {
+    transform: translateX(-50%) translateY(0) rotate(-15deg);
+  }
+  to {
+    transform: translateX(-50%) translateY(350px) rotate(-5deg);
+  }
+}
+
+@media (min-width: 1024px) {
+  @keyframes parallax-p2 {
+    from {
+      transform: translateY(0) rotate(-15deg);
+    }
+    to {
+      transform: translateY(350px) rotate(-5deg);
+    }
+  }
+}
+
+@keyframes parallax-p3 {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(180px);
+  }
+}
+
+@keyframes parallax-p4 {
+  from {
+    transform: translateY(0) rotate(10deg);
+  }
+  to {
+    transform: translateY(-450px) rotate(25deg);
+  }
+}
+
+/* --- КОНЕЦ ПАРАЛЛАКСА --- */
+
+.hero__ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--color-accent-red);
+  position: relative;
+}
+
+.running-text__inner {
+  display: inline-block;
+  animation: ticker 60s linear infinite;
+}
+
+.running-text__content {
+  display: inline-block;
+  color: white;
+  font-family: 'Merriweather', serif;
+  text-transform: uppercase;
+  padding: 0.75rem 0;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
