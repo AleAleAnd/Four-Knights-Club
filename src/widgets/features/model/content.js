@@ -5,7 +5,7 @@ export const featuresContent = {
       'посетите лекцию на тему:',
       '«Плодотворная дебютная идея»',
     ],
-    image: '/src/widgets/features/assets/features_img.jpg',
+    image: 'src/widgets/features/assets/features_img.jpg',
   },
   session: {
     title:
@@ -22,11 +22,11 @@ export const featuresContent = {
       },
     ],
     contact: 'По всем вопросам обращаться вминистрацию к К. Михельсону',
-    mainImage: '/src/widgets/features/assets/chessplayer.png',
+    mainImage: 'src/widgets/features/assets/chessplayer.png',
     secondaryImages: [
-      '/src/widgets/features/assets/hand.png',
-      '/src/widgets/features/assets/knight.jpg',
-      '/src/widgets/features/assets/money.jpg',
+      'src/widgets/features/assets/hand.png',
+      'src/widgets/features/assets/knight.jpg',
+      'src/widgets/features/assets/money.jpg',
     ],
   },
 }

@@ -1,7 +1,7 @@
 export const stepsData = {
   title: 'Этапы преображения Васюков',
   text: 'Будущие источники обогащения васюкинцев',
-  image: '/src/widgets/steps/assets/plane.png',
+  image: 'src/widgets/steps/assets/plane.png',
   steps: [
     'Строительство железнодорожной магистрали Москва-Васюки',
     'Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов',

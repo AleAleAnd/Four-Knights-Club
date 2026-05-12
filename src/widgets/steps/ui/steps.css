@@ -122,7 +122,7 @@
 }
 
 .steps .slider__slide {
-  background-image: url('/src/widgets/steps/assets/card__bg.jpg');
+  background-image: url('../assets/card__bg.jpg');
   background-size: cover;
   flex-shrink: 0;
   flex-basis: calc(
