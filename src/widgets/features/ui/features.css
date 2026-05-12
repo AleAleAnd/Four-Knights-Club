@@ -60,7 +60,7 @@
 }
 
 .features__media {
-  background-image: url('/src/widgets/features/assets/chessplayer_bg.png');
+  background-image: url('../assets/chessplayer_bg.png');
   background-size: cover;
   background-position: top;
   margin: 2rem 0 8rem 0;

@@ -4,24 +4,23 @@
   overflow: hidden;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/src/shared/assets/images/bg_mask.png');
-  z-index: 0;
-  opacity: 0.25;
-}
-
 .hero__container {
   position: relative;
 
   @media (min-width: 1024px) {
     padding-bottom: 10rem;
   }
+}
+
+.hero__container::after {
+  content: '';
+  background-image: url('../assets/bg_mask.png');
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
 }
 
 .hero__logo-link {

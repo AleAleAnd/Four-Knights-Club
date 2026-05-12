@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'Merriweather';
-  src: url('/src/shared/assets/fonts/Merriweather.ttf') format('truetype');
+  src: url('../shared/assets/fonts/Merriweather.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: 'GolosText';
-  src: url('/src/shared/assets/fonts/GolosText.ttf') format('truetype');
+  src: url('../shared/assets/fonts/GolosText.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
